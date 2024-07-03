@@ -1,29 +1,4 @@
-﻿# express_47htmx
 
- Version: 0.9.1
-
- Author  : Kouji Nakashima / kuc-arc-f.com
-
- date    : 2024/07/01
-
- update : 2024/07/01 
-
-***
-
-htmx + express SSR, sample
-
-***
-### build
-
-```
-yarn build
-#dev
-yarn dev
-```
-
-***
-* vercel.json
-```
 {
     "version": 2,
     "public": true,
@@ -44,10 +19,4 @@ yarn dev
         "dest": "/dist/index.js"
       }
     ]
-}
-```
-***
-### blog
-
-***
-
+  }

@@ -13,6 +13,11 @@
 htmx + express SSR, sample
 
 ***
+### stackblitz
+
+https://stackblitz.com/~/github.com/kuc-arc-f/express_47htmx
+
+***
 ### build
 
 ```

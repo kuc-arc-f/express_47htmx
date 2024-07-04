@@ -24,6 +24,8 @@ https://stackblitz.com/~/github.com/kuc-arc-f/express_47htmx
 
 * turso_todo: Turso LibSQL sample
 
+* simple_auth: auth sample
+
 ***
 ### build
 

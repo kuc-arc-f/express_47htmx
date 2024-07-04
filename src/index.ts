@@ -1,6 +1,6 @@
 
 import express from 'express';
-import cors from 'cors';
+//import cors from 'cors';
 import { renderToString } from 'react-dom/server';
 const app = express();
 //
@@ -11,20 +11,18 @@ import TestShow from './pages/Test/TestShow';
 import Htmx2 from './pages/Htmx2';
 import Htmx3 from './pages/Htmx3';
 //
-//import testRouter from './routes/test'; 
+import testRouter from './routes/test'; 
 import commonRouter from './routes/commonRouter';
 //
-app.use(cors())
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 console.log("env=", process.env.NODE_ENV);
-//console.log("VITE_API_URL=", import.meta.env.VITE_API_URL);
 //
 const errorObj = {ret: "NG", messase: "Error"};
 
 // route
-//app.use('/api/test', testRouter);
+app.use('/api/test', testRouter);
 app.use('/api/common', commonRouter);
 
 //MPA
@@ -60,4 +58,3 @@ const PORT = 3000;
 app.listen({ port: PORT }, () => {
   console.log(`Server ready at http://localhost:${PORT}`);
 });
-//export const viteNodeApp = app;

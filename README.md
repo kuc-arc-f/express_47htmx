@@ -1,12 +1,12 @@
 ﻿# express_47htmx
 
- Version: 0.9.1
+ Version: 0.9.1 , new
 
  Author  : Kouji Nakashima / kuc-arc-f.com
 
  date    : 2024/07/01
 
- update : 2024/07/01   
+ update : 2024/07/05   
 
 ***
 

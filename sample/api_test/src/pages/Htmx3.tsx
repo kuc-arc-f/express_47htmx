@@ -18,9 +18,9 @@ export default function Page() {
     <body>
       <a href="/">[ Top ]</a>
       <hr />
-      <h1>Htmx3.tsx</h1>
+      <h1>Htmx3</h1>
       <form
-      hx-post="/api/test/test1"
+      hx-post="/api/test/test"
       hx-trigger="submit"
       hx-target="#h2"
       hx-on="htmx:afterRequest: alert('OK, post send')"

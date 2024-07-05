@@ -15,7 +15,7 @@ import Htmx3 from './pages/Htmx3';
 //
 import TestApiIndex from "./pages/TestApi/CrudIndex";;
 //
-//import testRouter from './routes/test'; 
+import testRouter from './routes/test'; 
 import commonRouter from './routes/commonRouter';
 //
 app.use(express.json());
@@ -25,7 +25,7 @@ console.log("env=", process.env.NODE_ENV);
 //
 const errorObj = {ret: "NG", messase: "Error"};
 // route
-//app.use('/api/test', testRouter);
+app.use('/api/test', testRouter);
 app.use('/api/common', commonRouter);
 
 //MPA

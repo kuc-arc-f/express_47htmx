@@ -15,7 +15,7 @@ import HtmxTodoShow from './pages/HtmxTodoShow';
 //
 import HtmxTodoIndex from "./pages/HtmxTodo/CrudIndex";
 //
-//import testRouter from './routes/test'; 
+import testRouter from './routes/test'; 
 import commonRouter from './routes/commonRouter';
 import tursoTodoRouter from './routes/tursoTodoRouter';
 //
@@ -28,7 +28,7 @@ console.log("env=", process.env.NODE_ENV);
 const errorObj = {ret: "NG", messase: "Error"};
 
 // route
-//app.use('/api/test', testRouter);
+app.use('/api/test', testRouter);
 app.use('/api/common', commonRouter);
 app.use('/api/turso_todo', tursoTodoRouter);
 

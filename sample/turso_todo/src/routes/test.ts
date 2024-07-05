@@ -1,7 +1,7 @@
 import express from 'express';
 const router = express.Router();
-import LibConfig from '../lib/LibConfig';
-import LibPg from '../lib/LibPg';
+//import LibConfig from '../lib/LibConfig';
+//import LibPg from '../lib/LibPg';
 
 
 /**
@@ -12,9 +12,8 @@ import LibPg from '../lib/LibPg';
 */ 
 router.post('/test', async function(req: any, res: any) {
   try {
-//    const items = await LibTodo.getItems(req);
 console.log(req.body);
-    res.json([]);
+    res.json(req.body);
   } catch (error) {
     console.error(error);
     res.sendStatus(500);
@@ -30,6 +29,7 @@ console.log(req.body);
 router.post('/test1', async function(req: any, res: any) {
   try {
 console.log(req.body);
+/*
     const text = `
       SELECT * FROM public."Todo"
       ORDER BY id DESC LIMIT 100
@@ -37,8 +37,9 @@ console.log(req.body);
     const client = LibPg.getClient();
     const resulete = await client.query(text);
     client.end();
-//    res.json({ret: "OK", data: []});
     res.json({ret: "OK", data: resulete.rows});
+*/
+    res.json({ret: "OK", data: []});
   } catch (error) {
     console.error(error);
     res.sendStatus(500);

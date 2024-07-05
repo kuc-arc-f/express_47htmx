@@ -13,8 +13,6 @@ export default function Page() {
       <a href="/">[ home ]</a>
       <a href="/about">[ about ]</a>
       <a href="/htmx2">[ Htmx2 ]</a>
-      <a href="/htmx3">[ Htmx3 ]</a>
-      <a href="/testapi">[ TestApi ]</a>
       <a href="/login">[ Login ]</a>
       <hr />        
       <div id="root"></div>

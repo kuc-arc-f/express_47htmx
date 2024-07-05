@@ -3,7 +3,8 @@
   "compilerOptions": {
     "baseUrl": "./",
     "outDir": "./dist",
-    "target": "es5",
+    "target": "ESNext",
+    "module": "ESNext",
     "sourceMap": false,
     "strict": true,
     "removeComments": true,
@@ -13,8 +14,6 @@
   },
   "include": ["./src/**/*"],
   "exclude": [
-    "./src/test/*", "node_modules",
-    "./src/client/*", "./src/components/*",
-    "./src/main.tsx", "./src/App.tsx"
+    "./src/test/*", "node_modules"
   ]
 }

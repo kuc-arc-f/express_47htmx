@@ -36,7 +36,7 @@ const HttpCommon = {
   serverPost: async function(item: any, path: string): Promise<any>
   {
     try {
-      item.api_key = "";
+//      item.api_key = "";
       item.api_url = path;
 console.log(item);
 //return;

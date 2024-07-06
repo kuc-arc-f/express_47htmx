@@ -19,16 +19,26 @@ export default function Page(props: any) {
     <input type="text" className="d-none" id="item_id" defaultValue={0} />
     <div className="col-md-6 text-end  bg-white py-1">
       <span className="search_key_wrap">
-      <input type="text" 
-      className="mx-2 border border-gray-400 rounded-md px-3 py-2 focus:outline-none focus:border-blue-500" 
-      name="searchKey" id="searchKey"
-      placeholder="Title search" />
-      </span>                
-      <button 
-      className="ms-2 bg-transparent hover:bg-purple-500 text-purple-700 font-semibold hover:text-white py-2 px-4 border border-purple-500 hover:border-transparent rounded" 
-      id="btn_search"
-      >Search</button>
-    </div>    
+        <form
+        hx-post="/api/post/search_elem"
+        hx-trigger="submit"
+        hx-target="#search_result"
+        hx-on="htmx:beforeRequest: Top.hiddenListArea()
+        htmx:afterRequest: console.log('#afterRequest')"        
+        >
+          <input type="text" 
+          className="mx-2 border border-gray-400 rounded-md px-3 py-2 focus:outline-none focus:border-blue-500" 
+          name="seachKey" id="seachKey"
+          placeholder="Title search" />
+          <input type="text" name="api_url" className="d-none" defaultValue="/api/posts/search"/>
+          <button type="submit"
+          className="ms-2 bg-transparent hover:bg-purple-500 text-purple-700 font-semibold hover:text-white py-2 px-4 border border-purple-500 hover:border-transparent rounded" 
+          id="btn_search"
+          >Search</button>
+        </form>
+      </span> 
+    </div>  
+    <div id="search_result"></div>
     <hr />
     {/* List */}
     <div className="post_list_wrap container mx-auto my-2 px-2">
@@ -69,17 +79,16 @@ export default function Page(props: any) {
         </a>
       </div>
       <div id="app"></div>
-      {/*
       {(process.env.NODE_ENV === "develop") ? (
-          <script type="module" src="/static/Top.js"></script>
+          <script src="/js/Top.js"></script>
       ): (
-          <script type="module" src="/public/static/Top.js"></script> 
+          <script src="/public/js/Top.js"></script> 
       )}
-      */}
       <hr className="my-8" />
     </div>
   </Layout>
   )
 }
 /*
+<script type="module" src="/static/Top.js"></script>
 */

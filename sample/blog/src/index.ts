@@ -11,15 +11,18 @@ import TestShow from './pages/Test/TestShow';
 import TestApi from './pages/TestApi';
 import Htmx2 from './pages/Htmx2';
 import Htmx3 from './pages/Htmx3';
+import Htmx4 from './pages/Htmx4';
 import PostsIndex from './pages/posts/PostIndex';
 import PostShow from './pages/posts/PostShow';
 //
-import TestApiIndex from "./pages/TestApi/CrudIndex";;
+//import TestApiIndex from "./pages/TestApi/CrudIndex";;
 //
 import testRouter from './routes/test'; 
 import commonRouter from './routes/commonRouter';
 import postRouter from './routes/post';
 import siteRouter from './routes/site';
+import apiPost from './routes/apiPost';
+
 //
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -30,7 +33,7 @@ const errorObj = {ret: "NG", messase: "Error"};
 // route
 app.use('/api/test', testRouter);
 app.use('/api/common', commonRouter);
-//postRouter
+app.use('/api/post', apiPost);
 
 //MPA
 app.get('/posts/:id',async (req: any, res: any) => {
@@ -62,27 +65,21 @@ console.log("len=", items.length);
 app.get('/testapi', async (req: any, res: any) => {
   try {
     const items = await TestApiIndex.getList();
-    res.send(renderToString(PostsIndex(items)));
-  } catch (error) {
-     res.sendStatus(500);
-  }
-});
-*/
-
-app.get('/testapi', async (req: any, res: any) => {
-  try {
-    const items = await TestApiIndex.getList();
     //console.log(items);
     res.send(renderToString(TestApi(items)));
   } catch (error) {
      res.sendStatus(500);
   }
 });
+*/
 app.get('/htmx2', (req: any, res: any) => {
   try {res.send(renderToString(Htmx2()));} catch (error) { res.sendStatus(500);}
 });
 app.get('/htmx3', (req: any, res: any) => {
   try {res.send(renderToString(Htmx3()));} catch (error) { res.sendStatus(500);}
+});
+app.get('/htmx4', (req: any, res: any) => {
+  try {res.send(renderToString(Htmx4()));} catch (error) { res.sendStatus(500);}
 });
 app.get('/test/show', (req: any, res: any) => {
   try {res.send(renderToString(TestShow()));} catch (error) { res.sendStatus(500);}

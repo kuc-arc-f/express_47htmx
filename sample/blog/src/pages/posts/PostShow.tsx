@@ -1,14 +1,11 @@
 import Layout from '../Layout';
 import { marked } from 'marked';
 
-//let pegeItems: any[] = [];
 //
 export default function Page(props: any) {
   console.log("#TestApi");
   const content = marked.parse(props.item.content);
-console.log(content);
-
-//console.log(pegeItems);
+//console.log(content);
   //
   return (
   <Layout>
@@ -35,7 +32,4 @@ console.log(content);
   )
 }
 /*
-<a href="/">[ Top ]</a>
-<hr />
-<button className="btn-outline-purple ms-2">Show</button>
 */

@@ -8,8 +8,6 @@ import Head from '../components/Head'
 function Page(){
   return(
   <div>
-    <Head />
-    <hr />
     <h1 className="text-4xl font-bold">about!!</h1>
   </div>
   );
@@ -19,6 +17,4 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
   <Page />
 )
 /*
-<Head />
-<a href="/">Home</a>
 */

@@ -1,4 +1,5 @@
 import Layout from '../Layout';
+import LoadBox from '../../components/LoadBox'
 //let pegeItems: any[] = [];
 let nextPage = 1;
 let beforePage = 1;
@@ -24,7 +25,7 @@ export default function Page(props: any) {
         hx-trigger="submit"
         hx-target="#search_result"
         hx-on="htmx:beforeRequest: Top.hiddenListArea()
-        htmx:afterRequest: console.log('#afterRequest')"        
+        htmx:afterRequest: Top.completeFormProc()"        
         >
           <input type="text" 
           className="mx-2 border border-gray-400 rounded-md px-3 py-2 focus:outline-none focus:border-blue-500" 
@@ -38,8 +39,12 @@ export default function Page(props: any) {
         </form>
       </span> 
     </div>  
+    <div id="loading_wrap" className="d-none">
+      <LoadBox />
+    </div>
     <div id="search_result"></div>
     <hr />
+
     {/* List */}
     <div className="post_list_wrap container mx-auto my-2 px-2">
       {props.items.map((item: any ,index: number) => {

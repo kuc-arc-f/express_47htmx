@@ -27,20 +27,32 @@ const Top = {
     hiddenListArea: async function() {
   //    console.log("#initProc");
       const post_list_wrap = document.querySelector(`.post_list_wrap`);
-      if (!post_list_wrap.classList.contains('d-none')) 
-      {
-          post_list_wrap?.classList.add('d-none');
-      }
+      if (!post_list_wrap.classList.contains('d-none')) {
+        post_list_wrap?.classList.add('d-none'); 
+      };
+      const loading_wrap = document.querySelector(`#loading_wrap`);
+      if (loading_wrap.classList.contains('d-none')) {
+        loading_wrap?.classList.remove('d-none'); 
+      };
+    },
+    /**
+     *
+     * @param key: any
+     *
+     * @return
+     */
+    completeFormProc: async function() {
+      //    console.log("#initProc");
+      const loading_wrap = document.querySelector(`#loading_wrap`);
+      if (!loading_wrap.classList.contains('d-none')) {
+        loading_wrap?.classList.add('d-none'); 
+      };
     },
     /*
      initProc: async function() {
       console.log("#initProc");
       const btn_search = document.querySelector('#btn_search');
       btn_search?.addEventListener('click', async () => {
-          const post_list_wrap = document.querySelector(`.post_list_wrap`);
-          if (!post_list_wrap.classList.contains('d-none')) {
-              post_list_wrap?.classList.add('d-none');
-          }
           const res = await this.search();
       });  
     },

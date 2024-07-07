@@ -1,11 +1,24 @@
+
+export function countZeroCompo(props: any) {
+  return(
+  <div className=" container mx-auto my-2 px-2">
+    <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded" 
+      role="alert">
+      <strong className="font-bold">Error, Nothing Item</strong><br />
+      <span className="block sm:inline"></span>
+    </div>
+  </div>
+  );
+}
+//<div>Error, Nothing Item</div>
 //
 export default function Page(props: any) {
   //console.log(pegeItems);
   //
   return (
   <>
-    {/* List */}
-    <div className="post_list_wrap container mx-auto my-2 px-2">
+    {/* List post_list_wrap*/}
+    <div className=" container mx-auto my-2 px-2">
       {props.items.map((item: any ,index: number) => {
       return (
       <div key={item.id} className="rounded-md bg-white my-2  p-4">

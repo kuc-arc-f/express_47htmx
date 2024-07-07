@@ -3,7 +3,7 @@ const router = express.Router();
 import axios from 'axios';
 import { renderToString } from 'react-dom/server';
 import SearchResulte from '../pages/posts/SearchResulte'
-
+import {countZeroCompo} from '../pages/posts/SearchResulte'
 /**
 * 
 * @param
@@ -40,6 +40,9 @@ router.post('/search_elem', async function(req: any, res: any) {
     });
     const data = response.data;
     //console.log(data);
+    if(data.data.length < 1){
+      return res.send(renderToString(countZeroCompo({})));
+    }
     const htm = renderToString(SearchResulte({items: data.data}));
     return res.send(htm);
   } catch (error) {

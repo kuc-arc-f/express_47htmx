@@ -26,6 +26,8 @@ https://stackblitz.com/~/github.com/kuc-arc-f/express_47htmx
 
 * simple_auth: auth sample
 
+* blog: blog display sample
+
 ***
 ### build
 

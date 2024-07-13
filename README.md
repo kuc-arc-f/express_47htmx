@@ -6,7 +6,7 @@
 
  date    : 2024/07/01
 
- update : 2024/07/07  
+ update : 2024/07/13  
 
 ***
 
@@ -27,6 +27,8 @@ https://stackblitz.com/~/github.com/kuc-arc-f/express_47htmx
 * simple_auth: auth sample
 
 * blog: blog display sample
+
+* zod: zod form check
 
 ***
 ### build

@@ -8,13 +8,10 @@ import Top from './pages/App';
 import About from './pages/about';
 import Test from './pages/Test';
 import TestShow from './pages/Test/TestShow'; 
-import TestApi from './pages/TestApi';
 import Htmx2 from './pages/Htmx2';
 import Htmx3 from './pages/Htmx3';
 //
 import Zod1 from './pages/Zod1';
-//
-import TestApiIndex from "./pages/TestApi/CrudIndex";;
 //
 import testRouter from './routes/test'; 
 import commonRouter from './routes/commonRouter';
@@ -35,15 +32,6 @@ app.use('/api/zod', zodRouter);
 //Zod1
 app.get('/zod1', (req: any, res: any) => {
   try {res.send(renderToString(Zod1()));} catch (error) { res.sendStatus(500);}
-});
-app.get('/testapi', async (req: any, res: any) => {
-  try {
-    const items = await TestApiIndex.getList();
-    //console.log(items);
-    res.send(renderToString(TestApi(items)));
-  } catch (error) {
-     res.sendStatus(500);
-  }
 });
 app.get('/htmx2', (req: any, res: any) => {
   try {res.send(renderToString(Htmx2()));} catch (error) { res.sendStatus(500);}

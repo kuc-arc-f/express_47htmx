@@ -9,7 +9,8 @@ export default function Page() {
     hx-post="/api/test/test"
     hx-trigger="submit"
     hx-target="#resulte_form1"
-    hx-on="htmx:afterRequest: afterPostForm1()"
+    hx-on--before-request="alert('Making a request!')"
+    hx-on--after-request="afterPostForm1()"
     >
       <input type="text" name="name" />
       <button type="submit">Add</button>

@@ -7,6 +7,7 @@ import 'dotenv/config'
 import Top from './pages/App';
 import About from './pages/about';
 import TestApi from './pages/TestApi';
+import TestApiShow from './pages/TestApiShow';
 import Htmx2 from './pages/Htmx2';
 import Htmx3 from './pages/Htmx3';
 import Htmx4 from './pages/Htmx4';
@@ -36,6 +37,14 @@ app.get('/testapi', async (req: any, res: any) => {
   } catch (error) {
      res.sendStatus(500);
   }
+});
+app.get('/testapishow/:id', async (req: any, res: any) => {
+console.log("id=", req.params.id  );
+  try {
+    const item = await TestApiIndex.get(Number(req.params.id));
+console.log(item);
+    res.send(renderToString(TestApiShow(item)));
+  } catch (error) { res.sendStatus(500);}
 });
 app.get('/htmx2', (req: any, res: any) => {
   try {res.send(renderToString(Htmx2()));} catch (error) { res.sendStatus(500);}

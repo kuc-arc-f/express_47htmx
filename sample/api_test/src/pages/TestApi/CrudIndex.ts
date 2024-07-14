@@ -38,17 +38,19 @@ const CrudIndex = {
   {
     try {
       let ret = {};
-      /*
-      const client = await LibTurso.getClient();
-      const sql = `SELECT * FROM todos WHERE id=${id};`;
-console.log(sql);
-      const resulte = await client.execute(sql);
-      if(resulte.rows.length){
-        ret = resulte.rows[0];
-      }
-      */
-    //console.log(ret);
-      return ret;
+      const url = process.env.EXTERNAL_API_URL; 
+      const path = "/test/get";	
+      console.log("path=", url + path);
+      const item  = {
+        "id": id,
+      } 
+      const response = await axios.post(url + path, item, 
+        {headers: { 'Content-Type': 'application/json'}
+      });
+      const data = response.data;
+console.log(data.ret);
+      //@ts-ignore
+      return data.data;
     } catch (error) {
       console.error(error);
       throw new Error('Error , get');

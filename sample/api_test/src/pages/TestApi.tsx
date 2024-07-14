@@ -31,9 +31,9 @@ console.log("#TestApi");
     return (
     <div key={index}>
       <h3 className="text-3xl font-bold">{item.title}</h3>
-      <span>ID: {item.id}, {item.createdAt}</span>
-      <a href={`/htmxtodoshow/${item.id}`}>
+      <a href={`/testapishow/${item.id}`}> [ Show ]
       </a>
+      <span>ID: {item.id}, {item.createdAt}</span>
       <hr />
     </div>
     )

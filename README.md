@@ -10,12 +10,17 @@
 
 ***
 
-htmx + express SSR, sample
+htmx + Vite + express SSR, sample
 
 ***
 ### stackblitz
 
 https://stackblitz.com/~/github.com/kuc-arc-f/express_47htmx
+
+***
+### Related
+
+https://htmx.org
 
 ***
 ### sample

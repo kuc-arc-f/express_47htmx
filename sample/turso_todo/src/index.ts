@@ -6,10 +6,9 @@ import 'dotenv/config'
 //
 import Top from './pages/App';
 import About from './pages/about';
-import Test from './pages/Test';
-import TestShow from './pages/Test/TestShow'; 
 import Htmx2 from './pages/Htmx2';
 import Htmx3 from './pages/Htmx3';
+import Htmx4 from './pages/Htmx4';
 import HtmxTodo from './pages/HtmxTodo';
 import HtmxTodoShow from './pages/HtmxTodoShow';
 //
@@ -54,11 +53,8 @@ app.get('/htmx2', (req: any, res: any) => {
 app.get('/htmx3', (req: any, res: any) => {
   try {res.send(renderToString(Htmx3()));} catch (error) { res.sendStatus(500);}
 });
-app.get('/test/show', (req: any, res: any) => {
-  try {res.send(renderToString(TestShow()));} catch (error) { res.sendStatus(500);}
-});
-app.get('/test', (req: any, res: any) => {
-  try {res.send(renderToString(Test()));} catch (error) { res.sendStatus(500);}
+app.get('/htmx4', (req: any, res: any) => {
+  try {res.send(renderToString(Htmx4()));} catch (error) { res.sendStatus(500);}
 });
 app.get('/about', (req: any, res: any) => {
   try {

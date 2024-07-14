@@ -1,24 +1,10 @@
-//let pegeItems: any[] = [];
+import Layout from './Layout';
 //
 export default function Page(pegeItems) {
 //console.log(pegeItems);
   //
   return (
-  <>
-  <html lang="ja">
-    <head>
-      <meta charset="UTF-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>Document</title>
-      <script
-        src="https://unpkg.com/htmx.org@1.9.10"
-        integrity="sha384-D1Kt99CQMDuVetoL1lrYwg5t+9QdHe7NLX/SoJYkXDFfX37iInKRy5xLSi8nO7UC"
-        crossorigin="anonymous"
-      ></script>
-    </head>
-    <body>
-      <a href="/">[ Top ]</a>
-      <hr />
+  <Layout>
       <h1>HtmxTodo.tsx</h1>
       <hr />
       <form
@@ -49,9 +35,7 @@ export default function Page(pegeItems) {
       </div>
       )
       })}      
-    </body>
-  </html>
-  </>
+  </Layout>
   )
 }
 /*

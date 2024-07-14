@@ -14,16 +14,17 @@ fs.readdir(directoryPath, (err, files) => {
   }
 //  console.log('Files in directory:');
   files.forEach(file => {
-    const vEnd = file.endsWith(".tsx");
+    const vEnd = file.endsWith(".ts");
     if(vEnd) {
      targetFiles.push(file);
     }
   });
 //console.log(targetFiles);
   targetFiles.forEach(file => {
-    let target = file.replace(".tsx", '');
+    let target = file.replace(".ts", '');
 //console.log("target=", target);
-    let cmd = `npx esbuild --bundle ./src/client/${target}.tsx --format=esm --minify --outfile=./public/static/${target}.js`;
+//    let cmd = `npx esbuild --bundle ./src/client/${target}.ts --format=esm --minify --outfile=./public/static/${target}.js`;
+    let cmd = `npx esbuild ./src/client/${target}.ts --outfile=./public/static/${target}.js`;
 console.log("cmd=", cmd);
     exec(cmd, (err, stdout, stderr) => {
       if (err) {

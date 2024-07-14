@@ -12,6 +12,7 @@ export default function Page() {
         <a href="/about">[ about ]</a>
         <a href="/htmx2">[ htmx2 ]</a>
         <a href="/htmx3">[ htmx3 ]</a>
+        <a href="/htmx4">[ Htmx4 ]</a>
         <a href="/htmxtodo">[ HtmxTodo ]</a>
         <hr />        
         <div id="root"></div>

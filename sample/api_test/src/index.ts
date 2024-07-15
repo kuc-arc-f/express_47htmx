@@ -35,6 +35,7 @@ app.get('/testapi', async (req: any, res: any) => {
     //console.log(items);
     res.send(renderToString(TestApi(items)));
   } catch (error) {
+    console.error(error)
      res.sendStatus(500);
   }
 });

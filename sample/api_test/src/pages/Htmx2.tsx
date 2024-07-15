@@ -4,7 +4,7 @@ import Layout from './Layout';
 export default function Page() {
   return (
   <Layout>
-    <h1>HTMX</h1>
+    <h1 className="text-4xl font-bold">HTMX</h1>
     <button
       hx-get="https://jsonplaceholder.typicode.com/users/1"
       hx-target="#h2"

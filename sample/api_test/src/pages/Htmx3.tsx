@@ -4,7 +4,7 @@ import Layout from './Layout';
 export default function Page() {
   return (
   <Layout>
-    <h1>Htmx3.tsx</h1>
+    <h1 className="text-4xl font-bold">Htmx3.tsx</h1>
     <form
     hx-post="/api/test/test"
     hx-trigger="submit"

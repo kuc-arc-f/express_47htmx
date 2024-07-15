@@ -1,36 +1,85 @@
-//const express = require('express');
 import express from 'express';
 const router = express.Router();
-//require('dotenv').config();
 import axios from 'axios';
-
-/*****************************
-todos -index
-******************************/
-router.post('/send_post', async function(req: any, res: any) {
+import { z } from 'zod';
+//
+const FormData = z.object({
+  title: z
+      .string()
+      .min(1, { message: '1文字以上入力してください。' }),
+  content: z
+      .string()
+      .min(1, { message: '1文字以上入力してください。' }),
+});
+/**
+*
+* @param
+*
+* @return
+*/   
+router.post('/send_post_validate', async function(req: any, res: any) {
+  const retObj ={ret: "NG", data:{}, errors: {}}
+  try{  
+    const path = req.body.api_url;	
+    console.log("path=", path);
+    if(req.body && path === "/test/create"){
+      FormData.parse(req.body);
+    }
+  } catch (error: any) {
+    console.error(error);
+    retObj.errors = error.flatten().fieldErrors;
+    return res.json(retObj);
+  }
   try {
     //console.log("url=", process.env.API_URL);
     const url = process.env.EXTERNAL_API_URL; 
-//console.log(req.body);
     const path = req.body.api_url;	
-console.log("path=", url + path);
+    console.log("path=", url + path);
     const response = await axios.post(url + path, req.body, 
     {headers: { 'Content-Type': 'application/json'}
     });
-    const data = response.data;
-/*
-           if(response.data.result_code !== 200) {
-               console.error(response.data);
-               throw new Error(`Error, result_code <>200`);
-           }      
-*/
-//console.log(data);
+    //console.log(data);
     //@ts-ignore
     return res.json(response.data);
-  } catch (error) {
+  } catch (error: any) {
+    res.sendStatus(500);
+  }
+});
+/**
+*
+* @param
+*
+* @return
+*/   
+router.post('/send_post', async function(req: any, res: any) {
+  const retObj ={ret: "NG", data:{}, errors: {}}
+  try{  
+    const path = req.body.api_url;	
+    console.log("path=", path);
+    if(req.body && path === "/test/create"){
+      FormData.parse(req.body);
+    }
+  } catch (error: any) {
     console.error(error);
+    retObj.errors = error.flatten().fieldErrors;
+    return res.json(retObj);
+  }
+  try {
+    //console.log("url=", process.env.API_URL);
+    const url = process.env.EXTERNAL_API_URL; 
+    const path = req.body.api_url;	
+    console.log("path=", url + path);
+    const response = await axios.post(url + path, req.body, 
+    {headers: { 'Content-Type': 'application/json'}
+    });
+    //console.log(data);
+    //@ts-ignore
+    return res.json(response.data);
+  } catch (error: any) {
     res.sendStatus(500);
   }
 });
 
 export default router;
+/*
+*/

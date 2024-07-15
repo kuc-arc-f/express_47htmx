@@ -1,9 +1,16 @@
 import express from 'express';
-//import axios from 'axios';
-//import { createClient } from "@libsql/client";
 const router = express.Router();
 import LibTurso from '../lib/LibTurso';
-
+import { z } from 'zod';
+//
+const FormData = z.object({
+  title: z
+      .string()
+      .min(1, { message: '1文字以上入力してください。' }),
+  content: z
+      .string()
+      .min(1, { message: '1文字以上入力してください。' }),
+});
 /**
 * 
 * @param
@@ -60,7 +67,17 @@ console.log(sql);
 */
 router.post('/create', async function(req: any, res: any) {
   try {
-    const retObj = {ret: "NG", data: [], message: ""};
+    const retObj = {ret: "NG", data: [], message: "", errors:{} };
+    try{  
+      const path = req.body.api_url;	
+      console.log("path=", path);
+      FormData.parse(req.body);
+    } catch (error: any) {
+      console.error(error);
+      retObj.errors = error.flatten().fieldErrors;
+      return res.json(retObj);
+    }
+
     if(req.body){
       const body = req.body;
 console.log(body);

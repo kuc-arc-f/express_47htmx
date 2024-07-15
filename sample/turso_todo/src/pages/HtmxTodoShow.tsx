@@ -1,27 +1,15 @@
+import Layout from './Layout';
 
 export default function Page(item: any) {
 //console.log("#HtmxTodoShow.tsx");
 //console.log(item);
     //
     return (
-    <>
-    <html lang="ja">
-      <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
-        <script
-          src="https://unpkg.com/htmx.org@1.9.10"
-          integrity="sha384-D1Kt99CQMDuVetoL1lrYwg5t+9QdHe7NLX/SoJYkXDFfX37iInKRy5xLSi8nO7UC"
-          crossorigin="anonymous"
-        ></script>
-      </head>
-      <body>
-        <a href="/">[ Top ]</a>
-        <hr />
+    <Layout>
+      <div className="container mx-auto my-2 px-2">
         <a href="/htmxtodo">[ back ]</a>
-        <hr />
-        <h1>{item.title}</h1>
+        <hr className="my-2" />
+        <h1 className="text-4xl font-bold">{item.title}</h1>
         <span>ID: {item.id} , {item.createdAt}</span>
         <hr />
         <div>{item.content}</div>
@@ -32,14 +20,15 @@ export default function Page(item: any) {
         hx-target="#h2"
         hx-on="htmx:afterRequest: location.href='/htmxtodo'"
         >
-          <input type="text" name="id" defaultValue={item.id} /><br />
-          <button type="submit">Delete</button>
+          <input type="hidden" name="id" defaultValue={item.id} />
+          <button type="submit"
+          className="ms-2 bg-transparent hover:bg-purple-500 text-purple-700 font-semibold hover:text-white py-1 px-4 border border-purple-500 hover:border-transparent rounded"
+          >Delete</button>
         </form>
         <hr />
-        <h3 id="h2">ここに表示</h3>
-      </body>
-    </html>
-    </>
+        <h3 id="h2" className="d-none">ここに表示</h3>
+      </div>
+    </Layout>
     )
   }
   /*

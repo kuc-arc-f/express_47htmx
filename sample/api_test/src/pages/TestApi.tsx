@@ -74,7 +74,7 @@ console.log("#TestApi");
     ): (
     <>
       <script src="/public/static/Util.js"></script>
-      <script src="/public/static/ZoTestApid2.js"></script> 
+      <script src="/public/static/TestApi.js"></script> 
     </>
     )}
 

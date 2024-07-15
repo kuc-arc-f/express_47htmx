@@ -14,15 +14,6 @@
 zod, sample
 
 ***
-### Setup
-
-* .env
-* EXTERNAL_API_URL, set
-
-```
-EXTERNAL_API_URL="http://localhost"
-```
-***
 ### build
 
 ```

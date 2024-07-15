@@ -11,6 +11,7 @@ import Htmx3 from './pages/Htmx3';
 import Htmx4 from './pages/Htmx4';
 //
 import Zod1 from './pages/Zod1';
+import Zod2 from './pages/Zod2';
 //
 import testRouter from './routes/test'; 
 import commonRouter from './routes/commonRouter';
@@ -28,9 +29,11 @@ app.use('/api/common', commonRouter);
 app.use('/api/zod', zodRouter);
 
 //MPA
-//Zod1
 app.get('/zod1', (req: any, res: any) => {
   try {res.send(renderToString(Zod1()));} catch (error) { res.sendStatus(500);}
+});
+app.get('/zod2', (req: any, res: any) => {
+  try {res.send(renderToString(Zod2()));} catch (error) { res.sendStatus(500);}
 });
 app.get('/htmx2', (req: any, res: any) => {
   try {res.send(renderToString(Htmx2()));} catch (error) { res.sendStatus(500);}

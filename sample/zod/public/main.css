@@ -11,3 +11,5 @@ a {
   text-decoration: none;
 }
 .d-none { display: none; }
+.error_message { color: red; }
+

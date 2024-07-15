@@ -26,7 +26,8 @@ const Layout = ({ children }) => {
             <a href="/about">[ about ]</a>
             <a href="/htmx2">[ Htmx2 ]</a>
             <a href="/htmx3">[ Htmx3 ]</a>
-            <a href="/zod1">[ Zod1 ]</a>      
+            <a href="/zod1">[ Zod1 ]</a>
+            <a href="/zod2">[ Zod2 ]</a>
             <hr />        
         </div>
         <main>{children}</main>

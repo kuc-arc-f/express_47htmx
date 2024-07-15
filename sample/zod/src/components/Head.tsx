@@ -10,6 +10,7 @@ function Page() {
         <a href="/htmx2">&nbsp; [ Htmx2 ]</a>
         <a href="/htmx3">&nbsp; [ Htmx3 ]</a>
         <a href="/zod1">&nbsp; [ Zod1 ]</a>
+        <a href="/zod2">&nbsp; [ Zod2 ]</a>
         <hr />
     </div>
     );

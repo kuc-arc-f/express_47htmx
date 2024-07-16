@@ -1,9 +1,39 @@
 import express from 'express';
 const router = express.Router();
 //import LibConfig from '../lib/LibConfig';
-//import LibPg from '../lib/LibPg';
+import {htmConfirm1} from './test/renderHtml';
 
-
+/**
+* 
+* @param
+*
+* @return
+*/ 
+router.post('/render_confirm1', async function(req: any, res: any) {
+  try {
+console.log(req.body);
+    const htm = htmConfirm1(req.body.id);
+    res.send(htm);
+  } catch (error) {
+    console.error(error);
+    res.sendStatus(500);
+  }
+});
+/**
+* 
+* @param
+*
+* @return
+*/ 
+router.post('/delete', async function(req: any, res: any) {
+  try {
+console.log(req.body);
+    res.json(req.body);
+  } catch (error) {
+    console.error(error);
+    res.sendStatus(500);
+  }
+});
 /**
 * 
 * @param
@@ -29,16 +59,6 @@ console.log(req.body);
 router.post('/test1', async function(req: any, res: any) {
   try {
 console.log(req.body);
-/*
-    const text = `
-      SELECT * FROM public."Todo"
-      ORDER BY id DESC LIMIT 100
-    `;
-    const client = LibPg.getClient();
-    const resulete = await client.query(text);
-    client.end();
-    res.json({ret: "OK", data: resulete.rows});
-*/
     res.json({ret: "OK", data: []});
   } catch (error) {
     console.error(error);

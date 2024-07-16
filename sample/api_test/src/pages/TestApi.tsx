@@ -62,7 +62,9 @@ console.log("#TestApi");
           hx-trigger="submit"
           hx-target={`#resulte_text${item.id}`} >
           <input type="hidden" name="id" defaultValue={item.id} />
-          <button type="submit">[ Delete ]</button>
+          <button type="submit"
+          className="ms-2 bg-transparent hover:bg-purple-500 text-purple-700 font-semibold hover:text-white py-1 px-4 border border-purple-500 hover:border-transparent rounded"
+          >Delete</button>
         </form>
         <div id={`resulte_text${item.id}`}></div>
         <hr />

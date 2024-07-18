@@ -2,6 +2,34 @@ import express from 'express';
 const router = express.Router();
 //import LibConfig from '../lib/LibConfig';
 import {htmConfirm1} from './test/renderHtml';
+import ConfirmDialog from './test/ConfirmDialog';
+import ErrorDialogBox from '../components/ErrorDialogBox';
+import DialogBox from '../components/DialogBox';
+import { renderToString } from 'react-dom/server';
+//
+const ERROR_DIALOG_NAME1 = "errorModalDialog_1";
+const DIALOG_NAME1 = "modalDialog_1";
+
+/**
+* 
+* @param
+*
+* @return
+*/ 
+router.post('/render_confirm2', async function(req: any, res: any) {
+  try {
+console.log(req.body);
+    const id = req.body.id;
+    const htm = renderToString(
+      ConfirmDialog({message: "OK, Save", id: Number(id) })
+    );
+console.log(htm);
+    res.send(htm);
+  } catch (error) {
+    console.error(error);
+    res.sendStatus(500);
+  }
+});
 
 /**
 * 

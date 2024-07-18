@@ -27,6 +27,7 @@ const Layout = ({ children }) => {
             <a href="/htmx2">[ htmx2 ]</a>
             <a href="/htmx3">[ htmx3 ]</a>
             <a href="/htmx4">[ htmx4 ]</a>
+            <a href="/htmx6">[ htmx6 ]</a>
             <a href="/testapi">[ TestApi ]</a>
             <hr />        
             <main>{children}</main>

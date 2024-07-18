@@ -11,6 +11,7 @@ import TestApiShow from './pages/TestApiShow';
 import Htmx2 from './pages/Htmx2';
 import Htmx3 from './pages/Htmx3';
 import Htmx4 from './pages/Htmx4';
+import Htmx6 from './pages/Htmx6';
 
 //
 import TestApiIndex from "./pages/TestApi/CrudIndex";;
@@ -56,6 +57,10 @@ app.get('/htmx3', (req: any, res: any) => {
 app.get('/htmx4', (req: any, res: any) => {
   try {res.send(renderToString(Htmx4()));} catch (error) { res.sendStatus(500);}
 });
+app.get('/htmx6', (req: any, res: any) => {
+  try {res.send(renderToString(Htmx6()));} catch (error) { res.sendStatus(500);}
+});
+
 app.get('/about', (req: any, res: any) => {
   try {
     res.send(renderToString(About()));

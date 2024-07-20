@@ -13,6 +13,10 @@
 
 htmx , chat example
 
+***
+### API Server
+
+https://github.com/kuc-arc-f/d1-project7chat
 
 ***
 ### build
@@ -21,7 +25,6 @@ htmx , chat example
 
 ```
 yarn build
-
 #
 yarn dev
 ```

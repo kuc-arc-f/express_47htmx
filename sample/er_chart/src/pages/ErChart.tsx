@@ -1,6 +1,7 @@
 import Layout from './Layout';
 import ErrorDialogBox from '../components/ErrorDialogBox';
 import DialogBox from '../components/DialogBox';
+import ErChartBox from './ErChart/ErChartBox';
 //
 const ERROR_DIALOG_NAME1 = "errorModalDialog_1";
 const DIALOG_NAME1 = "modalDialog_1";
@@ -19,8 +20,8 @@ console.log("#TestApi");
       hx-post="/api/common/send_post_validate"
       hx-trigger="submit"
       hx-target="#resulte_form1"
-      hx-on--before-request="TestApi.beforePostForm1()"
-      hx-on--after-request="TestApi.afterPostForm1()"
+      hx-on--before-request="ErChart.beforePostForm1()"
+      hx-on--after-request="ErChart.afterPostForm1()"
       >
         <label>title:
           <input type="text" name="title" 
@@ -55,11 +56,12 @@ console.log("#TestApi");
       <div key={index}>
         <h3 className="text-3xl font-bold">{item.title}</h3>
         <span>ID: {item.id}, {item.createdAt}</span>
-        <a href={`/testapishow/${item.id}`}>
+        <a href={`/erchartshow/${item.id}`}>
           <button
           className="ms-2 bg-transparent hover:bg-purple-500 text-purple-700 font-semibold hover:text-white py-1 px-4 border border-purple-500 hover:border-transparent rounded"
           >Show</button>
         </a>
+        {/* delete */}
         <form className="my-0"
           hx-post="/api/test/render_confirm1"
           hx-trigger="submit"
@@ -70,6 +72,20 @@ console.log("#TestApi");
           >Delete</button>
         </form>
         <div id={`resulte_text${item.id}`}></div>
+        {/* Show */}
+        {/*
+        <form className="my-0"
+          hx-post="/api/er_chart/render_confirm2"
+          hx-trigger="submit"
+          hx-target={`#resulte_text${item.id}`} 
+          hx-on--before-request={`beforePostForm1(${item.id})`}
+          hx-on--after-request={`afterPostForm1(${item.id})`}
+          >
+          <input type="text" name="id" defaultValue={item.id} />
+          <button type="submit">[ open ]</button>
+        </form>
+        <div id={`resulte_text${item.id}`}></div>
+        */}
         <hr />
       </div>
       )
@@ -82,12 +98,12 @@ console.log("#TestApi");
     {(process.env.NODE_ENV === "develop") ? (
     <>
       <script src="/static/Util.js"></script>
-      <script src="/static/TestApi.js"></script>
+      <script src="/static/ErChart.js"></script>
     </>  
     ): (
     <>
       <script src="/public/static/Util.js"></script>
-      <script src="/public/static/TestApi.js"></script> 
+      <script src="/public/static/ErChart.js"></script> 
     </>
     )}
 
@@ -95,4 +111,5 @@ console.log("#TestApi");
   )
 } 
 /*
+<script type="module" src="/public/mermaid_load.js"></script>
 */

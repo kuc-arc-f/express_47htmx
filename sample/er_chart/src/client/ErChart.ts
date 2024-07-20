@@ -3,7 +3,7 @@ console.log("js/TestApi.js");
 const DIALOG_NAME1 = "modalDialog_1";
 const ERROR_DIALOG_NAME1 = "errorModalDialog_1";
 //
-const TestApi ={
+const ErChart ={
   //beforePostForm1
   beforePostForm1: function()  {
     try{

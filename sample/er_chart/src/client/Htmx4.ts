@@ -6,6 +6,16 @@ console.log("#Htmx4.tsx");
  *
  * @return
  */  
+function testClick4() {
+  console.log("#testClick4")
+}
+
+/**
+ *
+ * @param
+ *
+ * @return
+ */  
 function afterPostForm1(){
   try{
     console.log("afterPostForm1");

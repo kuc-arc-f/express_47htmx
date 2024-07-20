@@ -7,7 +7,7 @@ console.log("#TestApi");
   return (
   <Layout>
     <div className="container mx-auto my-2 px-2">
-      <h1 className="text-4xl font-bold">TestApiShow.tsx</h1>
+      <h1 className="text-4xl font-bold">ErChartShow.tsx</h1>
       <hr />
       <h1>{item.title}</h1>
       <span>ID: {item.id} , {item.createdAt}</span>
@@ -23,7 +23,7 @@ console.log("#TestApi");
         hx-post="/api/common/send_post"
         hx-trigger="submit"
         hx-target="#h2"
-        hx-on--after-request="location.href='/testapi' "
+        hx-on--after-request="location.href='/er_chart' "
         className= "my-0"
         >
         <input type="text" name="api_url" defaultValue="/test/delete"

@@ -1,14 +1,13 @@
 import express from 'express';
 const router = express.Router();
 //import LibConfig from '../lib/LibConfig';
-import {htmConfirm1} from './test/renderHtml';
-import ConfirmDialog from './test/ConfirmDialog';
-//import ErrorDialogBox from '../components/ErrorDialogBox';
-//import DialogBox from '../components/DialogBox';
+import {htmConfirm1} from './erChartRouter/renderHtml';
+import ConfirmDialog from './erChartRouter/ConfirmDialog';
 import { renderToString } from 'react-dom/server';
+import CrudIndex from './erChartRouter/CrudIndex';
 //
-const ERROR_DIALOG_NAME1 = "errorModalDialog_1";
-const DIALOG_NAME1 = "modalDialog_1";
+//const ERROR_DIALOG_NAME1 = "errorModalDialog_1";
+//const DIALOG_NAME1 = "modalDialog_1";
 
 /**
 * 
@@ -20,8 +19,10 @@ router.post('/render_confirm2', async function(req: any, res: any) {
   try {
 console.log(req.body);
     const id = req.body.id;
+    const item = await CrudIndex.get(Number(id));
+console.log(item);
     const htm = renderToString(
-      ConfirmDialog({message: "OK, Save", id: Number(id) })
+      ConfirmDialog({message: "OK, Save", id: Number(id), item: item})
     );
 console.log(htm);
     res.send(htm);

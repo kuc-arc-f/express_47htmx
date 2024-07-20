@@ -16,6 +16,10 @@ export default function Page() {
     </form>
     <hr />
     <h3 id="resulte_form1">ここに表示</h3>
+    <hr />
+    <div>Click example</div>
+    <hr />
+    <button hx-on:click="testClick4()">[ Click ]</button>
     {/* script */}
     {(process.env.NODE_ENV === "develop") ? (
         <script src="/static/Htmx4.js"></script>

@@ -39,7 +39,11 @@ console.log("#TestApi");
         <h3 id="h2"></h3>
     </div>
     {/* script */}
-    <script type="module" src="/mermaid_load.js"></script>
+    {(process.env.NODE_ENV === "develop") ? (
+      <script type="module" src="/mermaid_load.js"></script>
+    ): (
+      <script type="module" src="/public/mermaid_load.js"></script>
+    )}
   </Layout>
   )
 }

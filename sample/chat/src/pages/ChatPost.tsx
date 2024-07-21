@@ -14,8 +14,8 @@ console.log("userId=", popps.userId);
     <div className="container mx-auto my-2 px-2">
       <h1 className="text-4xl font-bold">ChatPost.tsx</h1>
       <hr />
-      <h1>post1</h1>
-      <span>ID:</span>
+      <span>chatId: {popps.chatId}</span>
+      <hr className="my-1" />
       <form className="my-0"
       hx-post="/api/chatpost/create"
       hx-trigger="submit"
@@ -23,9 +23,9 @@ console.log("userId=", popps.userId);
       hx-on--before-request="TestApi.beforePostForm1()"
       hx-on--after-request="location.reload()"
       >
-        <label>body:
-          <input type="text" name="body" 
-          className="mx-2 border border-gray-400 rounded-md px-3 py-2 focus:outline-none focus:border-blue-500"
+        <label>
+          <input type="text" name="body" placeholder="message input please."
+          className="mx-2 w-full border border-gray-400 rounded-md px-3 py-2 focus:outline-none focus:border-blue-500"
           />
         </label>
         <div className="error_message" id="error_message_title"></div>
@@ -40,13 +40,12 @@ console.log("userId=", popps.userId);
         >Add</button>
       </form>
       <h3 id="resulte_form1" className=""></h3>
-      <hr />
       <hr className="my-1" />
       {/* List */}
       {pegeItems.map((item: any, index: number) => {
       return (
       <div key={index}>
-        <h3 className="text-3xl font-bold">{item.user_name}</h3>
+        <h3 className="text-2xl font-bold">{item.user_name}</h3>
         <div>{item.body}</div>
         {/* dialog_show */}
         <form className="my-0"

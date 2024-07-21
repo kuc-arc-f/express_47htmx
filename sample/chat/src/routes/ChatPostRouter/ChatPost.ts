@@ -24,6 +24,26 @@ const ChatPost = {
    }
   },
   /**
+  * 
+  * @param chatPostId: number
+  *
+  * @return
+  */     
+  get : async function (chatPostId: number): Promise<any>
+  {
+   try{
+     const item = {
+      id: chatPostId,
+    }   
+     const json = await HttpCommon.serverPost(item, "/chat_posts/get");
+//console.log(json);
+     return json.data;
+   } catch (e) {
+     console.error(e);
+     throw new Error('Error, get');
+   }
+  },
+  /**
   * getChatItems : chat単位リスト
   * @param chatId: number
   *
@@ -35,7 +55,7 @@ const ChatPost = {
      const item = {
       chatId: chatId,
      }      
-     const json = await HttpCommon.server_post(item, "/threads/get_list_chat");
+     const json = await HttpCommon.serverPost(item, "/threads/get_list_chat");
 //console.log(json);
      return json.data;
    } catch (e) {

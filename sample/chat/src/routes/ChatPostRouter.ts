@@ -36,11 +36,13 @@ router.post('/render_confirm2', async function(req: any, res: any) {
   try {
 console.log(req.body);
     const id = req.body.id;
-    const items = await Thread.getItems(id)
+    const items = await Thread.getItems(id);
+    const post = await ChatPost.get(Number(id));
+//console.log(post);
     const htm = renderToString(
-        ThreadDialog({message: "OK, Save", id: Number(id), items: items})
+        ThreadDialog({message: "OK, Save", id: Number(id), items: items, post: post})
     );
-console.log(htm);
+//console.log(htm);
     res.send(htm);
   } catch (error) {
     console.error(error);

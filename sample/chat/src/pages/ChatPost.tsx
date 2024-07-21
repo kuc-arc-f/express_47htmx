@@ -1,8 +1,13 @@
 import Layout from './Layout';
+
+let pegeItems: any[] = [];
 //
-export default function Page(pegeItems: any) {
+//export default function Page(pegeItems: any) {
+export default function Page(popps: any) {
 console.log("#TestApi");
-console.log(pegeItems);
+  pegeItems = popps.item;
+console.log("chatId=", popps.chatId);
+console.log("userId=", popps.userId);
   //
   return (
   <Layout>
@@ -25,8 +30,8 @@ console.log(pegeItems);
         </label>
         <div className="error_message" id="error_message_title"></div>
         {/*  */}
-        <input type="hidden" name="userId" defaultValue={1} />
-        <input type="hidden" name="chatId" defaultValue={12} />
+        <input type="hidden" name="userId" defaultValue={popps.userId} />
+        <input type="hidden" name="chatId" defaultValue={popps.chatId} />
         <input type="text" name="api_url" defaultValue="/chat_posts/create"
         className="d-none" />
         <hr className="my-1" />
@@ -47,7 +52,7 @@ console.log(pegeItems);
         <form className="my-0"
           hx-post="/api/chatpost/render_confirm2"
           hx-trigger="submit"
-          hx-target={`#resulte_text${item.id}`} 
+          hx-target="#resulte_text"
           hx-on--before-request={`beforePostForm1(${item.id})`}
           hx-on--after-request={`afterPostForm1(${item.id})`}
           >
@@ -58,15 +63,14 @@ console.log(pegeItems);
           >Show
           </button>
         </form>
-        <div id={`resulte_text${item.id}`}></div>
         <hr />
       </div>
       )
       })}
-
+      <div id="resulte_text"></div>
     </div>
-        {/* script */}
-        {(process.env.NODE_ENV === "develop") ? (
+    {/* script */}
+    {(process.env.NODE_ENV === "develop") ? (
     <>
       <script src="/static/Util.js"></script>
       <script src="/static/ChatPost.js"></script>
@@ -81,10 +85,4 @@ console.log(pegeItems);
   )
 }
 /*
-<span>{item.createdAt}</span>
-<a href={`/chats/${item.id}`}>
-  <button
-  className="ms-2 bg-transparent hover:bg-purple-500 text-purple-700 font-semibold hover:text-white py-1 px-4 border border-purple-500 hover:border-transparent rounded"
-  >Show</button>
-</a>
 */

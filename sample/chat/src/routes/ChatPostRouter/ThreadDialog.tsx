@@ -54,8 +54,8 @@ console.log(pageItem);
             <input type="hidden" name="id" defaultValue={item.thread_id} />
             <input type="hidden" name="chatPostId" defaultValue={props.id} />
             <button type="submit"
-            className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
-            >DeleteBtn</button>
+            className="ms-2 bg-transparent hover:bg-purple-500 text-purple-700 font-semibold hover:text-white py-1 px-4 border border-purple-500 hover:border-transparent rounded"
+            >Delete</button>
           </form>
           <hr />
         </div>

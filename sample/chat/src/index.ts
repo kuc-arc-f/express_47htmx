@@ -22,7 +22,9 @@ import ChatPostIndex from "./pages/ChatPost/ChatPost";;
 import testRouter from './routes/test'; 
 import commonRouter from './routes/commonRouter';
 import ChatPostRouter from './routes/ChatPostRouter'; 
-import ThreadRouter from './routes/ThreadRouter'; 
+import ThreadRouter from './routes/ThreadRouter';
+//
+const USER_ID = 1; 
 //
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -50,34 +52,19 @@ app.get('/chats', async (req: any, res: any) => {
 });
 app.get('/chats/:id', async (req: any, res: any) => {
   console.log("id=", req.params.id  );
-    try {
-      const item = await ChatPostIndex.getList(Number(req.params.id));
-      //console.log(item);
-      res.send(renderToString(ChatPost(item)));
-    } catch (error) { 
-      console.error(error)
-      res.sendStatus(500);
-    }
-  });
-/*
-app.get('/testapi', async (req: any, res: any) => {
   try {
-    const items = await TestApiIndex.getList();
-    res.send(renderToString(TestApi(items)));
-  } catch (error) {
+    const item = await ChatPostIndex.getList(Number(req.params.id));
+    //console.log(item);
+    res.send(
+      renderToString(
+        ChatPost({item: item, chatId: Number(req.params.id), userId: USER_ID})
+        )
+    );
+  } catch (error) { 
     console.error(error)
-     res.sendStatus(500);
+    res.sendStatus(500);
   }
 });
-app.get('/testapishow/:id', async (req: any, res: any) => {
-console.log("id=", req.params.id  );
-  try {
-    const item = await TestApiIndex.get(Number(req.params.id));
-console.log(item);
-    res.send(renderToString(TestApiShow(item)));
-  } catch (error) { res.sendStatus(500);}
-});
-*/
 app.get('/htmx2', (req: any, res: any) => {
   try {res.send(renderToString(Htmx2()));} catch (error) { res.sendStatus(500);}
 });

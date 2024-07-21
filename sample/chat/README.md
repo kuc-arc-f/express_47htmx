@@ -19,6 +19,14 @@ htmx , chat example
 https://github.com/kuc-arc-f/d1-project7chat
 
 ***
+### Setup
+
+* .env
+```
+PUBLIC_API_URL=http://localhost
+PUBLIC_API_KEY="123"
+```
+***
 ### build
 
 * build, dev-start

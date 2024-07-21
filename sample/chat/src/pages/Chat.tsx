@@ -16,26 +16,18 @@ console.log(pegeItems);
       <h1 className="text-4xl font-bold">Chat.tsx</h1>
       <hr className="my-2" />
       <form className="my-0"
-      hx-post="/api/common/send_post_validate"
+      hx-post="/api/chat/create"
       hx-trigger="submit"
       hx-target="#resulte_form1"
-      hx-on--before-request="TestApi.beforePostForm1()"
-      hx-on--after-request="TestApi.afterPostForm1()"
+      hx-on--before-request=""
+      hx-on--after-request="location.reload()"
       >
-        <label>title:
-          <input type="text" name="title" 
+        <label>name:
+          <input type="text" name="name" 
           className="mx-2 border border-gray-400 rounded-md px-3 py-2 focus:outline-none focus:border-blue-500"
           />
         </label>
         <div className="error_message" id="error_message_title"></div>
-        <hr className="my-1" />
-        <label>Content:
-          <input type="text" name="content"
-          className="mx-2 border border-gray-400 rounded-md px-3 py-2 focus:outline-none focus:border-blue-500"
-          />
-        </label>
-        <br />
-        <div className="error_message" id="error_message_content"></div>
         {/*  */}
         <input type="text" name="api_url" defaultValue="/test/create"
         className="d-none" />
@@ -57,18 +49,6 @@ console.log(pegeItems);
           className="ms-2 bg-transparent hover:bg-purple-500 text-purple-700 font-semibold hover:text-white py-1 px-4 border border-purple-500 hover:border-transparent rounded"
           >Show</button>
         </a>
-        {/*
-        <form className="my-0"
-          hx-post="/api/test/render_confirm1"
-          hx-trigger="submit"
-          hx-target={`#resulte_text${item.id}`} >
-          <input type="hidden" name="id" defaultValue={item.id} />
-          <button type="submit"
-          className="ms-2 bg-transparent hover:bg-purple-500 text-purple-700 font-semibold hover:text-white py-1 px-4 border border-purple-500 hover:border-transparent rounded"
-          >Delete</button>
-        </form>
-        <div id={`resulte_text${item.id}`}></div>
-        */}
         <hr />
       </div>
       )

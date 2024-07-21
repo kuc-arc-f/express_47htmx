@@ -6,12 +6,13 @@ let pageItem : any[] = [];
 let postItem: any = {};
 //
 function Compo(props: any) {
+//console.log("#ThreadDialog.tsx");
 //console.log(props);
   pageItem = props.items;
   if(props.post){
     postItem = props.post;
   }
-console.log(postItem);
+//console.log(postItem);
   return (
   <dialog id={`modalDialog_${props.id}`} className="dialog">
     <div className="bg-white px-8 pt-3 pb-3 dialog_body_wrap">
@@ -36,8 +37,8 @@ console.log(postItem);
         </label>
         <div className="error_message" id="error_message_title"></div>
         {/*  */}
-        <input type="hidden" name="userId" defaultValue={1} />
-        <input type="hidden" name="chatId" defaultValue={12} />
+        <input type="hidden" name="userId" defaultValue={props.userId} />
+        <input type="hidden" name="chatId" defaultValue={props.chatId} />
         <input type="hidden" name="chatPostId" defaultValue={props.id} />
         <input type="hidden" name="api_url" defaultValue="/chat_posts/create"
         className="d-none" />

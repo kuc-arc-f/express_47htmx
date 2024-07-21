@@ -22,6 +22,7 @@ import ChatPostIndex from "./pages/ChatPost/ChatPost";;
 import testRouter from './routes/test'; 
 import commonRouter from './routes/commonRouter';
 import ChatPostRouter from './routes/ChatPostRouter'; 
+import ChatRouter from './routes/ChatRouter'; 
 import ThreadRouter from './routes/ThreadRouter';
 //
 const USER_ID = 1; 
@@ -37,6 +38,7 @@ const errorObj = {ret: "NG", messase: "Error"};
 app.use('/api/test', testRouter);
 app.use('/api/common', commonRouter);
 app.use('/api/chatpost', ChatPostRouter);
+app.use('/api/chat', ChatRouter);
 app.use('/api/thread', ThreadRouter);
 
 //MPA

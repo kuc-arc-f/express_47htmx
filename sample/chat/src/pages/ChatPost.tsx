@@ -56,6 +56,8 @@ console.log("userId=", popps.userId);
           hx-on--after-request={`afterPostForm1(${item.id})`}
           >
           <input type="hidden" name="id" defaultValue={item.id} />
+          <input type="hidden" name="userId" defaultValue={popps.userId} />
+          <input type="hidden" name="chatId" defaultValue={popps.chatId} />
           <span>{item.createdAt}</span>
           <button type="submit"
           className="ms-2 bg-transparent hover:bg-purple-500 text-purple-700 font-semibold hover:text-white py-1 px-4 border border-purple-500 hover:border-transparent rounded"

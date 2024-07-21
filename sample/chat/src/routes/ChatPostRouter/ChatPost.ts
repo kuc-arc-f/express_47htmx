@@ -2,7 +2,7 @@
 import HttpCommon from '../../lib/HttpCommon';
 
 //
-const Thread = {
+const ChatPost = {
   /**
   * getItems
   * @param chatPostId: number
@@ -35,7 +35,7 @@ const Thread = {
      const item = {
       chatId: chatId,
      }      
-     const json = await HttpCommon.serverPost(item, "/threads/get_list_chat");
+     const json = await HttpCommon.server_post(item, "/threads/get_list_chat");
 //console.log(json);
      return json.data;
    } catch (e) {
@@ -50,20 +50,19 @@ const Thread = {
   *
   * @return
   */   
-  create : async function (req: any)  {
+  create : async function (req: any): Promise<void>
+   {
     try{
       const body = req.body;
       const item = {
         title: '',
-        body: body.thread_body,
-        userId: body.userId,
-        chatId: body.chatId,
-        chatPostId: body.chatPostId,
+        body: body.body,
+        userId: Number(body.userId),
+        chatId: Number(body.chatId),
       }
-//console.log(item);
-      const json = await HttpCommon.serverPost(item, "/threads/create");
-      //console.log(json);
-      return json;
+console.log(item);
+      const json = await HttpCommon.serverPost(item, "/chat_posts/create");
+      console.log(json);
     } catch (e) {
       console.error(e);
       throw new Error('Error, create');
@@ -82,7 +81,7 @@ const Thread = {
       const item = {
         id: id
       }
-      const json = await HttpCommon.serverPost(item, "/threads/delete");
+      const json = await HttpCommon.server_post(item, "/threads/delete");
       console.log(json);
       return ret;
     } catch (e) {
@@ -104,7 +103,7 @@ const Thread = {
           chatId: chatId,
           seachKey : searchKey,
         }
-        const json = await HttpCommon.serverPost(item, "/threads/search");
+        const json = await HttpCommon.server_post(item, "/threads/search");
         items = json.data
 // /console.log(items);	      
       return items;
@@ -113,4 +112,4 @@ const Thread = {
     }
   },       
 }
-export default Thread;
+export default ChatPost;

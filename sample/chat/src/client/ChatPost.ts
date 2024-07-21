@@ -24,20 +24,30 @@ function beforePostForm1(id: number){
  */  
 function afterPostForm1(id: number){
   try{
-    console.log("afterPostForm1");
+      console.log("afterPostForm1");
     console.log("id=", `modalDialog_${id}`);
     Util.dialogShow(`modalDialog_${id}`);
-    /*
-    const resulte_form1 = document.querySelector('#resulte_form1') as HTMLElement;
-    if(!resulte_form1){
-      return;
-    }
-    const htm: string = resulte_form1.innerHTML;
-    const obj = JSON.parse(htm);
-console.log(obj);
-     */
   } catch (e) {
     console.error(e);
   }
 }
-
+//
+const ChatPost = {
+  /**
+   *
+   * @param
+   *
+   * @return
+   */  
+  afterAddThread(){
+    try{
+      console.log("afterAddThread");
+      const elem = document.querySelector<HTMLInputElement>('#thread_body');
+      if(elem){
+        elem.value = "";
+      }
+    } catch (e) {
+      console.error(e);
+    }
+  },  
+}

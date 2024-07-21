@@ -22,6 +22,7 @@ import ChatPostIndex from "./pages/ChatPost/ChatPost";;
 import testRouter from './routes/test'; 
 import commonRouter from './routes/commonRouter';
 import ChatPostRouter from './routes/ChatPostRouter'; 
+import ThreadRouter from './routes/ThreadRouter'; 
 //
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -34,6 +35,7 @@ const errorObj = {ret: "NG", messase: "Error"};
 app.use('/api/test', testRouter);
 app.use('/api/common', commonRouter);
 app.use('/api/chatpost', ChatPostRouter);
+app.use('/api/thread', ThreadRouter);
 
 //MPA
 app.get('/chats', async (req: any, res: any) => {

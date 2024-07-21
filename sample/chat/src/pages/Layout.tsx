@@ -24,11 +24,6 @@ const Layout = ({ children }) => {
         <div>
             <a href="/">[ home ]</a>
             <a href="/about">[ about ]</a>
-            <a href="/htmx2">[ htmx2 ]</a>
-            <a href="/htmx3">[ htmx3 ]</a>
-            <a href="/htmx4">[ htmx4 ]</a>
-            <a href="/htmx6">[ htmx6 ]</a>
-            <a href="/testapi">[ TestApi ]</a>
             <a href="/chats">[ Chats ]</a>
             <hr />        
             <main>{children}</main>
@@ -39,4 +34,9 @@ const Layout = ({ children }) => {
 };
 export default Layout;
 /*
+<a href="/htmx2">[ htmx2 ]</a>
+<a href="/htmx3">[ htmx3 ]</a>
+<a href="/htmx4">[ htmx4 ]</a>
+<a href="/htmx6">[ htmx6 ]</a>
+<a href="/testapi">[ TestApi ]</a>
 */

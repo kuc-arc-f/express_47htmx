@@ -57,7 +57,7 @@ const HttpCommon = {
             {headers: { 'Content-Type': 'application/json'}
         });
         const data = response.data;
-console.log(data);
+//console.log(data);
         //@ts-ignore
         return data;
     } catch (e) {

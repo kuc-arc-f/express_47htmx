@@ -4,6 +4,7 @@ const router = express.Router();
 import {htmConfirm1} from './test/renderHtml';
 import ConfirmDialog from './test/ConfirmDialog';
 import ThreadDialog from './ChatPostRouter/ThreadDialog';
+import ThreadList from './ChatPostRouter/ThreadList';
 import ChatPost from './ChatPostRouter/ChatPost';
 import { renderToString } from 'react-dom/server';
 import Thread from './ChatPostRouter/Thread';
@@ -18,9 +19,17 @@ import Thread from './ChatPostRouter/Thread';
 router.post('/create', async function(req: any, res: any) {
   try {
 console.log(req.body);
-    const reulte = await ChatPost.create(req);
+    const reulte = await Thread.create(req);
 console.log(reulte);
-    res.json(req.body);
+    const chatPostId = Number(req.body.chatPostId);
+console.log("chatPostId=", chatPostId);
+    const items = await Thread.getItems(chatPostId);
+//console.log(items);
+    const htm = renderToString(
+      ThreadList({message: "OK, Save", id: Number(chatPostId), items: items})
+    );
+//console.log(htm);
+    res.send(htm);
   } catch (error) {
     console.error(error);
     res.sendStatus(500);
@@ -73,7 +82,16 @@ console.log(req.body);
 router.post('/delete', async function(req: any, res: any) {
   try {
 console.log(req.body);
-    res.json(req.body);
+    const reulte = await Thread.delete(Number(req.body.id));
+    console.log(reulte);
+    const chatPostId = Number(req.body.chatPostId);
+console.log("chatPostId=", chatPostId);
+    const items = await Thread.getItems(chatPostId);
+    const htm = renderToString(
+      ThreadList({message: "OK, Save", id: Number(chatPostId), items: items})
+    );
+console.log(htm);
+    res.send(htm);
   } catch (error) {
     console.error(error);
     res.sendStatus(500);

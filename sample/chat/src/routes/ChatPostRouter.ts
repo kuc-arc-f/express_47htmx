@@ -79,6 +79,9 @@ console.log(req.body);
 router.post('/delete', async function(req: any, res: any) {
   try {
 console.log(req.body);
+    const resulte = await ChatPost.delete(Number(req.body.id));
+console.log(resulte);
+
     res.json(req.body);
   } catch (error) {
     console.error(error);

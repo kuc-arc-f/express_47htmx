@@ -101,7 +101,7 @@ console.log(item);
       const item = {
         id: id
       }
-      const json = await HttpCommon.server_post(item, "/threads/delete");
+      const json = await HttpCommon.serverPost(item, "/chat_posts/delete");
       console.log(json);
       return ret;
     } catch (e) {

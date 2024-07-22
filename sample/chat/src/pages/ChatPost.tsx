@@ -47,6 +47,7 @@ console.log("userId=", popps.userId);
       <div key={index}>
         <h3 className="text-2xl font-bold">{item.user_name}</h3>
         <div>{item.body}</div>
+        <span>ID: {item.id} , {item.createdAt}</span>
         {/* dialog_show */}
         <form className="my-0"
           hx-post="/api/chatpost/render_confirm2"
@@ -58,7 +59,6 @@ console.log("userId=", popps.userId);
           <input type="hidden" name="id" defaultValue={item.id} />
           <input type="hidden" name="userId" defaultValue={popps.userId} />
           <input type="hidden" name="chatId" defaultValue={popps.chatId} />
-          <span>{item.createdAt}</span>
           <button type="submit"
           className="ms-2 bg-transparent hover:bg-purple-500 text-purple-700 font-semibold hover:text-white py-1 px-4 border border-purple-500 hover:border-transparent rounded"
           >Show

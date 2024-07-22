@@ -8,7 +8,6 @@ import ThreadList from './ChatPostRouter/ThreadList';
 import ChatPost from './ChatPostRouter/ChatPost';
 import { renderToString } from 'react-dom/server';
 import Thread from './ChatPostRouter/Thread';
-//import HttpCommon from '../../lib/HttpCommon';
 //
 /**
 * 

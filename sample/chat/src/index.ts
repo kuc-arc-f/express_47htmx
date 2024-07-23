@@ -6,15 +6,8 @@ import 'dotenv/config'
 //
 import Top from './pages/App';
 import About from './pages/about';
-import TestApi from './pages/TestApi';
-import TestApiShow from './pages/TestApiShow';
-import Htmx2 from './pages/Htmx2';
-import Htmx3 from './pages/Htmx3';
-import Htmx4 from './pages/Htmx4';
-import Htmx6 from './pages/Htmx6';
 import Chat from './pages/Chat';
 import ChatPost from './pages/ChatPost';
-
 //
 import ChatIndex from "./pages/Chat/CrudIndex";;
 import ChatPostIndex from "./pages/ChatPost/ChatPost";;
@@ -67,19 +60,6 @@ app.get('/chats/:id', async (req: any, res: any) => {
     res.sendStatus(500);
   }
 });
-app.get('/htmx2', (req: any, res: any) => {
-  try {res.send(renderToString(Htmx2()));} catch (error) { res.sendStatus(500);}
-});
-app.get('/htmx3', (req: any, res: any) => {
-  try {res.send(renderToString(Htmx3()));} catch (error) { res.sendStatus(500);}
-});
-app.get('/htmx4', (req: any, res: any) => {
-  try {res.send(renderToString(Htmx4()));} catch (error) { res.sendStatus(500);}
-});
-app.get('/htmx6', (req: any, res: any) => {
-  try {res.send(renderToString(Htmx6()));} catch (error) { res.sendStatus(500);}
-});
-
 app.get('/about', (req: any, res: any) => {
   try {
     res.send(renderToString(About()));
@@ -100,4 +80,3 @@ const PORT = 3000;
 app.listen({ port: PORT }, () => {
   console.log(`Server ready at http://localhost:${PORT}`);
 });
-//export const viteNodeApp = app;

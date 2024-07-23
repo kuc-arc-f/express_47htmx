@@ -7,7 +7,14 @@ import ThreadDialog from './ChatPostRouter/ThreadDialog';
 import ChatPost from './ChatPostRouter/ChatPost';
 import { renderToString } from 'react-dom/server';
 import Thread from './ChatPostRouter/Thread';
-//import HttpCommon from '../../lib/HttpCommon';
+import { z } from 'zod';
+//
+const FormData = z.object({
+  body: z
+      .string()
+      .min(1, { message: '1文字以上入力してください。' }),
+});
+
 //
 /**
 * 
@@ -16,6 +23,16 @@ import Thread from './ChatPostRouter/Thread';
 * @return
 */ 
 router.post('/create', async function(req: any, res: any) {
+  const retObj ={ret: "NG", data:{}, errors: {}}
+  try{  
+    //const path = req.body.api_url;	
+    //console.log("path=", path);
+    FormData.parse(req.body);
+  } catch (error: any) {
+    console.error(error);
+    retObj.errors = error.flatten().fieldErrors;
+    return res.json(retObj);
+  }  
   try {
 console.log(req.body);
     const reulte = await ChatPost.create(req);

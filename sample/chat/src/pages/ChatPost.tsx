@@ -20,15 +20,15 @@ console.log("userId=", popps.userId);
       hx-post="/api/chatpost/create"
       hx-trigger="submit"
       hx-target="#resulte_form1"
-      hx-on--before-request="TestApi.beforePostForm1()"
-      hx-on--after-request="location.reload()"
+      hx-on--before-request=""
+      hx-on--after-request="ChatPost.afterPostForm1()"
       >
         <label>
           <input type="text" name="body" placeholder="message input please."
           className="mx-2 w-full border border-gray-400 rounded-md px-3 py-2 focus:outline-none focus:border-blue-500"
           />
         </label>
-        <div className="error_message" id="error_message_title"></div>
+        <div className="error_message" id="error_message_body"></div>
         {/*  */}
         <input type="hidden" name="userId" defaultValue={popps.userId} />
         <input type="hidden" name="chatId" defaultValue={popps.chatId} />

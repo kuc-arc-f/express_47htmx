@@ -52,23 +52,6 @@ console.log("len=", items.length);
     res.sendStatus(500);
   }
 });
-/*
-app.get('/htmx2', (req: any, res: any) => {
-  try {res.send(renderToString(Htmx2()));} catch (error) { res.sendStatus(500);}
-});
-app.get('/htmx3', (req: any, res: any) => {
-  try {res.send(renderToString(Htmx3()));} catch (error) { res.sendStatus(500);}
-});
-app.get('/htmx4', (req: any, res: any) => {
-  try {res.send(renderToString(Htmx4()));} catch (error) { res.sendStatus(500);}
-});
-app.get('/test/show', (req: any, res: any) => {
-  try {res.send(renderToString(TestShow()));} catch (error) { res.sendStatus(500);}
-});
-app.get('/test', (req: any, res: any) => {
-  try {res.send(renderToString(Test()));} catch (error) { res.sendStatus(500);}
-});
-*/
 app.get('/about', (req: any, res: any) => {
   try {
     res.send(renderToString(About()));
@@ -82,4 +65,3 @@ const PORT = 3000;
 app.listen({ port: PORT }, () => {
   console.log(`Server ready at http://localhost:${PORT}`);
 });
-//export const viteNodeApp = app;
